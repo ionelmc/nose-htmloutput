@@ -1,0 +1,11 @@
+include README.rst
+include LICENSE
+include AUTHORS
+include tox.ini
+include .coveragerc
+include .pylintrc
+include *.komodoproject
+graft tests
+graft examples
+graft docs
+global-exclude *.pyc *.pyo

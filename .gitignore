@@ -1,0 +1,13 @@
+.DS_Store
+*.pyc
+*~
+.*.sw[po]
+dist/
+*.egg-info
+build/
+.build/
+pip-log.txt
+.tox/
+.coverage
+.coverage.*
+.ve/
