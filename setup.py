@@ -18,7 +18,7 @@ def read(*names, **kwargs):
     ).read()
 
 setup(
-    name="nose_htmloutput",
+    name="nose-htmloutput",
     version="0.1.1",
     license="BSD",
     description="Nose plugin that generates a nice html test report.",
