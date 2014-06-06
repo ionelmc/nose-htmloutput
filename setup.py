@@ -19,7 +19,7 @@ def read(*names, **kwargs):
 
 setup(
     name="nose_htmloutput",
-    version="0.1.0",
+    version="0.1.1",
     license="BSD",
     description="Nose plugin that generates a nice html test report.",
     long_description="%s\n%s" % (read("README.rst"), re.sub(":obj:`~?(.*?)`", r"``\1``", read("CHANGELOG.rst"))),
