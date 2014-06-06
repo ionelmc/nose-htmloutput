@@ -44,8 +44,10 @@ Development
 To run the all tests run::
 
     tox
-    
+
 Example
 =======
 
 .. image:: docs/sample.png
+
+.. image:: sample.png
