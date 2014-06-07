@@ -49,5 +49,3 @@ Example
 =======
 
 .. image:: docs/sample.png
-
-.. image:: sample.png
