@@ -93,30 +93,32 @@ section:target .test-details {
     </section>
     <h1>Failure details</h1>
     {% for class, group in report.items() %}
-    <section>
-        <h2>{{ class }} ({{ group.stats.failures }} failures)</h2>
-        <div>
-            {% for test in group.tests %}
-                {% if test.failed %}
-                <section id="{{ class }}:{{ test.name }}">
-                    <h3>{{ test.name }}: <strong>{{ test.errtype }}</strong></h3>
-                    <div class="test-details">
-                        <h4>Traceback</h4>
-                        <pre class="traceback">{{ test.tb }}</pre>
-                        <h4>Details</h4>
-                        <pre>{{ test.message }}</pre>
-                    </div>
-                </section>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
+        {% if group.stats.failures or group.stats.errors %}
+            <section>
+                <h2>{{ class }} ({{ group.stats.failures }} failures, {{ group.stats.errors }} errors)</h2>
+                <div>
+                    {% for test in group.tests %}
+                        {% if test.failed and test.type != 'skipped' %}
+                        <section id="{{ class }}:{{ test.name }}">
+                            <h3>{{ test.name }}: <strong>{{ test.errtype }}</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">{{ test.tb }}</pre>
+                                <h4>Details</h4>
+                                <pre>{{ test.message }}</pre>
+                            </div>
+                        </section>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
     {% endfor %}
 
     <h1>All tests</h1>
     {% for class, group in report.items() %}
     <section>
-        <h2>{{ class }} ({{ group.stats.failures }} failures)</h2>
+        <h2>{{ class }} ({{ group.stats.failures }} failures, {{ group.stats.errors }} errors)</h2>
         <ul>
             {% for test in group.tests %}
                 <li><a class="{% if test.failed %}failed" href="#{{ class }}:{{ test.name }}"{% else %}success"{% endif %}>{{ test.name }}</a></li>
