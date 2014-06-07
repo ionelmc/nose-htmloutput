@@ -4,7 +4,7 @@ import subprocess
 
 
 def test_sample():
-    subprocess.call(['nosetests', '--with-html', '--html-file=sample.html', 'tests/test_sample.py'])
+    subprocess.call(['coverage', 'run', 'tests/nosetests.py', '--with-html', '--html-file=sample.html', 'tests/test_sample.py'])
     output = open('sample.html').read()
 
     assert """<tr>
@@ -40,4 +40,3 @@ def test_sample():
     assert '<h2>test_sample (1 failures)</h2>' in output
     assert '<li><a class="success">test_a</a></li>' in output
     assert '<li><a class="failed" href="#test_sample:test_b">test_b</a></li>' in output
-

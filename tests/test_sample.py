@@ -14,4 +14,4 @@ def test_a():
 
 
 def test_b():
-    assert 0, "Some other details"
+    raise RuntimeError("Some other details")
