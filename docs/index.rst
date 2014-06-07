@@ -7,8 +7,6 @@ Contents:
    :maxdepth: 2
 
    readme
-   installation
-   usage
    reference/index
    contributing
    authors
