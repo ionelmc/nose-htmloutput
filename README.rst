@@ -48,4 +48,4 @@ To run the all tests run::
 Example
 =======
 
-.. image:: docs/sample.png
+.. image:: https://raw.githubusercontent.com/ionelmc/nose-htmloutput/master/docs/sample.png
