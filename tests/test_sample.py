@@ -25,5 +25,11 @@ def test_a():
 def test_b():
     raise RuntimeError("Some other details")
 
+
 def test_c():
     raise SkipTest('skipped')
+
+
+def test_1():
+    print("Hello, world!")
+    assert False

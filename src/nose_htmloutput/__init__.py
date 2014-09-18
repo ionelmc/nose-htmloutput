@@ -60,7 +60,7 @@ def exc_message(exc_info):
             result = str(exc)
         except UnicodeEncodeError:
             try:
-                result = unicode(exc)
+                result = unicode(exc)  # flake8: noqa
             except UnicodeError:
                 # Fallback to args as neither str nor
                 # unicode(Exception(u'\xe6')) work in Python < 2.6
