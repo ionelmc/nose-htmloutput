@@ -10,6 +10,8 @@ from jinja2 import FileSystemLoader
 from nose.exc import SkipTest
 from nose.plugins import Plugin
 
+__version__ = '0.3.0'
+
 TEST_ID = re.compile(r'^(.*?)(\(.*\))$')
 
 

@@ -2,10 +2,15 @@
 nose-htmloutput
 ===============================
 
-
 .. image:: http://img.shields.io/travis/ionelmc/nose-htmloutput/master.png
-    :alt: Build Status
+    :alt: Travis-CI Build Status
     :target: https://travis-ci.org/ionelmc/nose-htmloutput
+
+.. See: http://www.appveyor.com/docs/status-badges
+
+.. image:: https://ci.appveyor.com/api/projects/status/<security-token>/branch/master
+    :alt: AppVeyor Build Status
+    :target: https://ci.appveyor.com/project/ionelmc/nose-htmloutput
 
 .. image:: http://img.shields.io/coveralls/ionelmc/nose-htmloutput/master.png
     :alt: Coverage Status
