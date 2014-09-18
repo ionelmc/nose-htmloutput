@@ -163,7 +163,12 @@ class HtmlOutput(Plugin):
     def addFailure(self, test, err, capt=None, tb_info=None):
         """Add failure output to Xunit report.
         """
-        tb = ''.join(traceback.format_exception(*err))
+        exc_type, exc_val, tb = err
+        tb = ''.join(traceback.format_exception(
+            exc_type,
+            exc_val if isinstance(exc_val, exc_type) else exc_type(exc_val),
+            tb
+        ))
         name = id_split(test.id())
         group = self.report_data[name[0]]
         self.stats['failures'] += 1

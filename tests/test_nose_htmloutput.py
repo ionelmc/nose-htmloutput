@@ -12,7 +12,7 @@ def test_sample():
         'tests/test_sample.py'
     ) as proc:
         with dump_on_error(proc.read):
-            wait_for_strings(proc.read, TIMEOUT, 'FAILED (SKIP=1, errors=1, failures=2)')
+            wait_for_strings(proc.read, TIMEOUT, 'Ran 8 tests in')
     output = open('sample.html').read()
 
 
