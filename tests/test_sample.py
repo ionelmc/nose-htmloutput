@@ -33,3 +33,12 @@ def test_c():
 def test_1():
     print("Hello, world!")
     assert False
+
+
+class FailedSetupTestCase(unittest.TestCase):
+    def setUp(self):
+        print("Hello, world!")
+        raise Exception("bad")
+
+    def test_whatever(self):
+        pass

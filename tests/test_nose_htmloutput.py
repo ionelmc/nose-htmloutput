@@ -12,9 +12,8 @@ def test_sample():
         'tests/test_sample.py'
     ) as proc:
         with dump_on_error(proc.read):
-            wait_for_strings(proc.read, TIMEOUT, 'Ran 8 tests in')
+            wait_for_strings(proc.read, TIMEOUT, 'Ran 9 tests in')
     output = open('sample.html').read()
-
 
     assert """<tr>
                     <td>test_sample</td>
@@ -31,6 +30,13 @@ def test_sample():
                     <td>2</td>
                 </tr>""" in output
     assert """<tr>
+                    <td>test_sample.FailedSetupTestCase</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>""" in output
+    assert """<tr>
                     <td>test_sample.SecondTestCase</td>
                     <td>0</td>
                     <td>0</td>
@@ -42,7 +48,7 @@ def test_sample():
                 <td>2</td>
                 <td>1</td>
                 <td>4</td>
-                <td>8</td>
+                <td>9</td>
             </tr>""" in output
 
 
@@ -56,3 +62,4 @@ def test_sample():
     assert '<h2>test_sample (1 failures, 1 errors)</h2>' in output
     assert '<li><a class="success">test_a</a></li>' in output
     assert '<li><a class="failed" href="#test_sample:test_b">test_b</a></li>' in output
+    assert "<h2>test_sample.FailedSetupTestCase (0 failures, 1 errors)</h2>" in output
