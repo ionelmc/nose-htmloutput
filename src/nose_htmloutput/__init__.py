@@ -160,7 +160,7 @@ class HtmlOutput(Plugin):
             'tb': tb,
         })
 
-    def addFailure(self, test, err, capt=None, tb_info=None):
+    def addFailure(self, test, err, capt=None):
         """Add failure output to Xunit report.
         """
         exc_type, exc_val, tb = err
