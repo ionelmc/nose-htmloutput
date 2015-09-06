@@ -7,6 +7,16 @@ Changelog
 
 * First release on PyPI.
 
+0.3.0 (?)
+------------------
+
+* Fixed exception handling on Python 3.
+
+0.5.0 (2014-10-04)
+------------------
+
+* Made addError handle exceptions the same way as addFailure.
+
 0.6.0 (2015-09-06)
 ------------------
 
