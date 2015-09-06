@@ -17,14 +17,16 @@ def test_sample():
 
     assert """<tr>
                     <td>test_sample</td>
-                    <td>1</td>
+                    <td class="failed">1</td>
+                    <td class="failed">1</td>
                     <td>1</td>
                     <td>1</td>
                     <td>4</td>
                 </tr>""" in output
     assert """<tr>
                     <td>test_sample.MainTestCase</td>
-                    <td>1</td>
+                    <td class="failed">1</td>
+                    <td>0</td>
                     <td>0</td>
                     <td>1</td>
                     <td>2</td>
@@ -32,6 +34,7 @@ def test_sample():
     assert """<tr>
                     <td>test_sample.FailedSetupTestCase</td>
                     <td>0</td>
+                    <td class="failed">1</td>
                     <td>0</td>
                     <td>0</td>
                     <td>1</td>
@@ -40,12 +43,14 @@ def test_sample():
                     <td>test_sample.SecondTestCase</td>
                     <td>0</td>
                     <td>0</td>
+                    <td>0</td>
                     <td>2</td>
                     <td>2</td>
                 </tr>""" in output
     assert """<tr>
                 <td><strong>Total</strong></td>
-                <td>2</td>
+                <td class="failed">2</td>
+                <td class="failed">2</td>
                 <td>1</td>
                 <td>4</td>
                 <td>9</td>

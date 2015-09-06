@@ -43,6 +43,9 @@ h1, h2, h3, h4, a[href] {
 h3 strong, a.failed {
     color: #ff4136;
 }
+.failed {
+    color: #ff4136;
+}
 a.success {
     color: #3d9970;
 }
@@ -68,7 +71,8 @@ section:target .test-details {
         <table>
             <tr>
                 <th>Class</th>
-                <th>Fail</th>
+                <th{% if stats.failures %} class="failed"{% endif %}>Fail</th>
+                <th{% if stats.errors %} class="failed"{% endif %}>Error</th>
                 <th>Skip</th>
                 <th>Success</th>
                 <th>Total</th>
@@ -76,7 +80,8 @@ section:target .test-details {
             {% for class, group in report.items() %}
                 <tr>
                     <td>{{ class }}</td>
-                    <td>{{ group.stats.failures }}</td>
+                    <td{% if group.stats.failures %} class="failed"{% endif %}>{{ group.stats.failures }}</td>
+                    <td{% if group.stats.errors %} class="failed"{% endif %}>{{ group.stats.errors   }}</td>
                     <td>{{ group.stats.skipped  }}</td>
                     <td>{{ group.stats.passes   }}</td>
                     <td>{{ group.stats.total    }}</td>
@@ -84,7 +89,8 @@ section:target .test-details {
             {% endfor %}
             <tr>
                 <td><strong>Total</strong></td>
-                <td>{{ stats.failures }}</td>
+                <td{% if stats.failures %} class="failed"{% endif %}>{{ stats.failures }}</td>
+                <td{% if stats.errors %} class="failed"{% endif %}>{{ stats.errors   }}</td>
                 <td>{{ stats.skipped  }}</td>
                 <td>{{ stats.passes   }}</td>
                 <td>{{ stats.total    }}</td>
