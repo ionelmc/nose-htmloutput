@@ -115,11 +115,12 @@ class HtmlOutput(Plugin):
         The file includes a report of test errors and failures.
 
         """
+        from collections import OrderedDict
         self.stats['total'] = sum(self.stats.values())
         for group in self.report_data.values():
             group.stats['total'] = sum(group.stats.values())
         self.report_file.write(self.jinja.get_template('report.html').render(
-            report=self.report_data,
+            report=OrderedDict(sorted(self.report_data.iteritems())),
             stats=self.stats,
         ))
         self.report_file.close()
