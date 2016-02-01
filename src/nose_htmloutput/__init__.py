@@ -120,7 +120,7 @@ class HtmlOutput(Plugin):
         for group in self.report_data.values():
             group.stats['total'] = sum(group.stats.values())
         self.report_file.write(self.jinja.get_template('report.html').render(
-            report=OrderedDict(sorted(self.report_data.iteritems())),
+            report=OrderedDict(sorted(self.report_data.items())),
             stats=self.stats,
         ))
         self.report_file.close()
